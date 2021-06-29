@@ -56,7 +56,7 @@ body {
 }
 
 .info h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     transition: all 0.75s ease-out;
     margin-bottom: 2rem;
 }
@@ -90,9 +90,8 @@ body {
     color: #585858;
 }
 
-button.active {
-    background: #585858;
-    color: white;
+.sizes button:hover{
+    background: grey;
 }
 
 .purchase {
@@ -109,4 +108,8 @@ button.active {
     cursor: pointer;
     border-radius: 30px;
     font-weight: bolder;
+}
+
+.purchase button:hover{
+    background: #701f1d;
 }
