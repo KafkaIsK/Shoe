@@ -14,7 +14,8 @@ body {
 }
 
 .container {
-    width: 40%;
+    width: 600px;
+    margin: 0 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,13 +43,39 @@ body {
     transition: all 0.75s ease-out;
 }
 
-.circle {
+.circle1 {
     width: 15rem;
     height: 15rem;
     background: linear-gradient(
         to bottom,
         rgba(244, 212, 106, 0.75),
         rgba(26, 27, 23, 0.75)
+    );
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.circle2 {
+    width: 15rem;
+    height: 15rem;
+    background: linear-gradient(
+        to right,
+        rgba(57, 125, 72, 0.75),
+        rgba(220, 234, 131, 0.75)
+    );
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.circle3 {
+    width: 15rem;
+    height: 15rem;
+    background: linear-gradient(
+        to bottom,
+        rgba(218, 216, 221, 0.75),
+        rgba(43, 37, 37, 0.75)
     );
     position: absolute;
     border-radius: 50%;

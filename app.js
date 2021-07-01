@@ -1,39 +1,52 @@
 // Movement Animation
-const card = document.querySelector('.card');
-const container = document.querySelector('.container');
+const card = document.querySelectorAll('.card');
+const container = document.querySelectorAll('.container');
 // Items
-const title = document.querySelector('.title');
-const sneaker = document.querySelector('.sneaker img');
-const purchase = document.querySelector('.purchase');
-const description = document.querySelector('.info');
-const sizes = document.querySelector('.sizes');
+const title = document.querySelectorAll('.title');
+const sneaker = document.querySelectorAll('.sneaker img');
+const purchase = document.querySelectorAll('.purchase');
+const description = document.querySelectorAll('.info');
+const sizes = document.querySelectorAll('.sizes');
 
 // Moving Event
-container.addEventListener('mousemove', e => {
-    console.log('hey');
+container[0].addEventListener('mousemove', e => {
+    let xAxis = (window.innerWidth / 2 - e.pageX - 560) / 25;
+    let yAxis = (window.innerHeight / 2 - e.pageY) / 50;
+    card[0].style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+});
+
+container[1].addEventListener('mousemove', e => {
     let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-    let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-    card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+    let yAxis = (window.innerHeight / 2 - e.pageY) / 50;
+    card[1].style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
 });
 
-container.addEventListener('mouseenter', e => {
-    card.style.transition = 'none';
-    // Popout
-    title.style.transform = 'translateZ(150px)';
-    sneaker.style.transform = 'translateZ(200px) rotateZ(-45deg)';
-    description.style.transform = 'translateZ(125px)';
-    sizes.style.transform = 'translateZ(150px)';
-    purchase.style.transform = 'translateZ(150px)';
-})
+container[2].addEventListener('mousemove', e => {
+    let xAxis = (window.innerWidth / 2 - e.pageX + 560) / 25;
+    let yAxis = (window.innerHeight / 2 - e.pageY) / 50;
+    card[2].style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+});
 
-container.addEventListener('mouseleave', e => {
-    card.style.transition = 'all 0.5s ease';
-    // Reset
-    card.style.transform = 'rotateY(0deg) rotateX(0deg)';
-    title.style.transform = 'translateZ(0px)';
-    sneaker.style.transform = 'translateZ(0px) rotateZ(0deg)';
-    description.style.transform = 'translateZ(0px)';
-    sizes.style.transform = 'translateZ(0px)';
-    purchase.style.transform = 'translateZ(0px)';
+
+for (let i =0; i < container.length; i++) {
+    container[i].addEventListener('mouseenter', e => {
+        card[i].style.transition = 'none';
+        // Popout
+        title[i].style.transform = 'translateZ(150px)';
+        sneaker[i].style.transform = 'translateZ(200px) rotateZ(-45deg)';
+        description[i].style.transform = 'translateZ(125px)';
+        sizes[i].style.transform = 'translateZ(150px)';
+        purchase[i].style.transform = 'translateZ(150px)';
+    })
     
-});
+    container[i].addEventListener('mouseleave', e => {
+        card[i].style.transition = 'all 0.5s ease';
+        // Reset
+        card[i].style.transform = 'rotateY(0deg) rotateX(0deg)';
+        title[i].style.transform = 'translateZ(0px)';
+        sneaker[i].style.transform = 'translateZ(0px) rotateZ(0deg)';
+        description[i].style.transform = 'translateZ(0px)';
+        sizes[i].style.transform = 'translateZ(0px)';
+        purchase[i].style.transform = 'translateZ(0px)';
+    });
+}
